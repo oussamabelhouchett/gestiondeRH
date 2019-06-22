@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+      <div class="container">
+        <!-- sh-breadcrumb -->
+      <div class="sh-pagetitle">
+        <div class="input-group">
+          <!-- input-group-btn -->
+        </div><!-- input-group -->
+        <div class="sh-pagetitle-left">
+          <div class="sh-pagetitle-icon"><i class="icon ion-ios-home"></i></div>
+          <div class="sh-pagetitle-title">
+            <h2>Home</h2>
+          </div><!-- sh-pagetitle-left-title -->
+        </div><!-- sh-pagetitle-left -->
+      </div>
+     
+      <div class="sh-pagebody">
+
+        <div class="row row-sm">
+          <div class="col-xl-6">
+            <div class="card bd-primary">
+              <div class="card-header bg-primary tx-white">Bar Chart</div>
+              <div class="card-body pd-sm-30">
+                  <h:form>
+                      <p:chart type="bar" model="#{chartView.barModel}" style="height:300px"/> </h:form></div><!-- card-body -->
+            </div><!-- card -->
+          </div><!-- col-6 -->
+          <div class="col-xl-6 mg-t-25 mg-xl-t-0">
+            <div class="card bd-primary">
+              <div class="card-header bg-primary tx-white">Stacked Bar Chart</div>
+              <div class="card-body pd-sm-30">
+                  <h:form>
+                      <p:chart type="bar" model="#{chartView.horizontalBarModel}" style="height:300px"/> </h:form> </div><!-- card-body -->
+            </div><!-- card -->
+          </div><!-- col-6 -->
+        </div><!-- row -->
+      </div></div>
+        
+<script src="css/bootstrap.bundler.min.js"/>
+    </h:body>
+</html>
+

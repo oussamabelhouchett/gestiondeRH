@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"    xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <head>
+        <title>Facelet Title</title>
+    </head>
+    <body><h:form id="all">                                   
+    <div class="row">
+    
+<div class="card-body">
+    <p:panel rendered="#{codewarsManipulation.listlangage.size()==0}" >
+     <div class="form-group"><label for="exampleInputEmail1">user name in codewars :</label>
+         <p:inputText id="exampleInputEmail1" value="#{codewarsManipulation.username}" class="form-control" rendered="#{codewarsManipulation.listlangage.size()==0}" /> </div>
+   
+<p:commandButton class="btn btn-primary" action="#{codewarsManipulation.scancodeware}" value="valide" update="all" rendered="#{codewarsManipulation.listlangage.size()==0}" ></p:commandButton>
+    </p:panel>
+</div>
+<!--end card-body-->
+        
+    </div>
+            <div class="container">    <div class="row" >   
+                    <p:repeat value="#{codewarsManipulation.listlangage}" rendered="#{codewarsManipulation.listlangage.size()!=0}" var="langage">
+                    <div class="col-md-3">                       
+<div class="card mb-0">
+<div class="card-body">
+<div class="float-right"> </div>
+<span class="badge badge-info ">#{langage.langueP}</span>
+<h3 class="font-weight-bold">#{langage.score}</h3>
+
+</div>
+</div>
+                    </div></p:repeat></div></div>
+        </h:form>
+    </body>
+</html>
+

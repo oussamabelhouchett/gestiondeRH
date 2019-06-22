@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        
+    </h:head>
+    <h:body>
+        
+<ui:composition template="Client.xhtml">
+    
+	
+    		<ui:define name="content">
+                     <link href="css/anychart-ui.min.css" rel="stylesheet" type="text/css"/>
+ 
+                   <link href="css/boot.css" rel="stylesheet" id="bootstrap-css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="css/jquery.circliful.js"></script>
+<script src="css/boot.js"></script>
+
+<h:form id="form1">
+<div class="sh-pagetitle">
+        <div class="input-group">
+          <!-- input-group-btn -->
+        </div><!-- input-group -->
+        <div class="sh-pagetitle-left">
+          <div class="sh-pagetitle-icon"><i class="icon ion-ios-mail-unread"></i></div>
+          <div class="sh-pagetitle-title">
+            <h2>Requests Availble</h2>
+          </div><!-- sh-pagetitle-left-title -->
+        </div><!-- sh-pagetitle-left -->
+      </div>
+<div class="container">
+    <p:repeat value="#{clientChance.list}" var="requestd" varStatus="i">
+
+    <div class="row">
+      <div class="col-2">  
+          <div id="test-circle#{i.index}" style=" width: 150%; height: 150%;padding-left: 0px;   "> </div>
+                    <script src="css/chartanty.js"></script>
+  <script type="text/javascript">anychart.onDocumentReady(function () {
+    var chart = anychart.pie([
+        
+     
+    ]);
+	
+ var chart = chart.data([
+  ['accept',#{requestd.score}],
+        ['', 0],
+        ['refus',100-#{requestd.score}]
+       
+]);
+
+ chart.innerRadius("50%");
+   var layer = anychart.graphics.layer();
+// draw the square
+layer.image("css/user-2.jpg",0,0, 100,100);
+  
+    
+    // set the label as the center content
+    chart.center().content(layer);
+
+    chart.container("test-circle#{i.index}");
+    chart.draw();
+});</script>
+      </div> <p:spacer  width="20"></p:spacer>
+      <div class="col-8">  
+          <br></br>
+        <p>
+            #{requestd.demnade.description} 
+       </p>
+          <p>Experience :#{requestd.demnade.experience} ans</p> 
+ 
+          <p>niveau :#{requestd.demnade.niveau}</p>
+          
+          <p>contact us: :#{requestd.demnade.entreprised.email}</p>
+      </div>
+    </div>
+      <br></br>
+      
+     <br></br><br></br>
+
+      <br></br>
+    <div class="row">
+      <div class="span8">
+        <p></p>
+        <p>
+            <i class="icon-user"></i> by <a href="#">#{requestd.demnade.entreprised.nomentreprise}</a> 
+          | <i class="icon-calendar"></i> Sept 16th, 2012
+          | <i class="icon-tags"></i> skils : 
+          <p:repeat value="#{requestd.demnade.listskils}" var="skil">
+              <a href="#"><span class="label label-info">#{skil.skilsdemande}</span></a> </p:repeat>
+              <i class="icon-tags"> </i>salaire max :#{requestd.demnade.salairemax} d
+        </p>
+      </div>
+    </div>
+ 
+
+<hr/>
+</p:repeat></div>
+</h:form>  </ui:define></ui:composition>
+    </h:body>
+</html>
+

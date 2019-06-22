@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+      
+<link rel="shortcut icon" href="assets/images/favicon.ico"/><!-- App css -->
+<link href="css/bootstrap.minjeanreno.css" rel="stylesheet" type="text/css"/>
+<link href="css/iconsjeanreno.css" rel="stylesheet" type="text/css"/>
+<link href="css/metismenu.minjeanreno.css" rel="stylesheet" type="text/css"/>
+  <link href="css/stylejeanreno.css" rel="stylesheet" type="text/css"/>
+    </h:head><h:body>
+  
+<div class="page-content">
+      <br></br>
+    <br></br>
+      <br></br>
+    <br></br>
+     <div class="container">
+<div class="row">
+  
+<div class="col-7">
+
+<div class="card-body">
+    <h4 class="header-title ">#{homeentrepriseBean.entreprise.nomentreprise}</h4>
+</div><div class="card">
+<div class="card-body invoice-head">
+<div class="row">
+    <div class="col-md-4 align-self-center"><img class="logo-sm mr-2" src="css/#{homeentrepriseBean.entreprise.logo}" alt="logo-small" height="120" /> </div>
+<div class="col-md-8">
+<ul class="list-inline mb-0 contact-detail float-right">
+<li class="list-inline-item">
+<div class="pl-3">
+    <p class="text-muted mb-0">#{homeentrepriseBean.entreprise.website}</p>
+    <p class="text-muted mb-0">#{homeentrepriseBean.entreprise.email}</p>
+</div>
+</li>
+<li class="list-inline-item">
+<div class="pl-3">
+    <p class="text-muted mb-0">#{homeentrepriseBean.entreprise.numtel}</p>
+    <p class="text-muted mb-0">#{homeentrepriseBean.entreprise.adress}</p>
+</div>
+</li>
+<li class="list-inline-item">
+<div class="pl-3">
+</div>
+</li>
+</ul>
+</div>
+</div></div>
+
+     
+</div>
+</div>
+<div class="col-md-5">
+<div class="card carousel-bg-img">
+    <div class="card-body bg-gradient3">
+<div class="">
+<div class="card-icon"> </div>
+</div>
+</div>
+<div class="card-body ">
+<h4 class="mt-0 header-title">Populer Profile</h4>
+<div id="carousel_2" class="carousel slide" data-ride="carousel">
+<div class="carousel-inner">
+<div class="carousel-item active">
+<div class="media"><img class="mr-4" src="css/user-1.jpg" alt="..." height="130" />
+    <div class="media-body align-self-center"><span class="badge badge-primary mb-2">#{thebestprofile.listcv.get(0).getClient1().getNom()} #{thebestprofile.listcv.get(0).getClient1().getPrenom()} </span>
+<h4 class="mt-0">#{thebestprofile.listcv.get(0).getLangueP()} </h4>
+
+<p class="text-muted mb-0">#{thebestprofile.listcv.get(0).getScore()} </p>
+<p class="mt-0">#{thebestprofile.listcv.get(0).getClient1().getEmail()}</p>
+<p class="mt-0"> #{thebestprofile.listcv.get(0).getClient1().getNumtel()}</p>
+</div>
+</div>
+</div>
+<div class="carousel-item">
+<div class="media"><img class="mr-4" src="css/user-2.jpg" alt="..." height="130" />
+<div class="media-body align-self-center"><span class="badge badge-primary mb-2">#{thebestprofile.listcv.get(1).getClient1().getNom()}  #{thebestprofile.listcv.get(1).getClient1().getPrenom()}</span>
+<h4 class="mt-0">#{thebestprofile.listcv.get(1).getLangueP()} </h4>
+
+<p class="text-muted mb-0">#{thebestprofile.listcv.get(1).getScore()} </p>
+
+<p class="mt-0">#{thebestprofile.listcv.get(1).getClient1().getEmail()}</p>
+<p class="mt-0"> #{thebestprofile.listcv.get(1).getClient1().getNumtel()}</p>
+</div>
+</div>
+</div>
+<div class="carousel-item">
+<div class="media"><img class="mr-4" src="css/user-3.jpg" alt="..." height="130" />
+<div class="media-body align-self-center"><span class="badge badge-primary mb-2">#{thebestprofile.listcv.get(2).getClient1().getNom()}  #{thebestprofile.listcv.get(2).getClient1().getPrenom()}</span>
+<h4 class="mt-0">#{thebestprofile.listcv.get(2).getLangueP()} </h4>
+
+<p class="text-muted mb-0">#{thebestprofile.listcv.get(2).getScore()} </p>
+
+<p class="mt-0">#{thebestprofile.listcv.get(2).getClient1().getEmail()}</p>
+<p class="mt-0"> #{thebestprofile.listcv.get(2).getClient1().getNumtel()}</p>
+</div>
+</div>
+</div>
+</div>
+<a class="carousel-control-prev" href="#carousel_2" data-slide="prev"> <span class="sr-only">Previous</span> </a><a class="carousel-control-next" href="#carousel_2" data-slide="next"> <span class="sr-only">Next</span></a></div>
+</div>
+<!--end card-body--></div>
+<!--end card-->
+
+</div>
+<!--end col--></div>
+         <div class="row">
+             <div class="col-8">
+                 <ui:include src="map1.xhtml"></ui:include></div>
+         <div class="col-4">
+             <style>
+                 .h11 {
+ 
+  color: #4CAF50;
+}
+
+.p1 {
+  text-indent: 50px;
+
+ 
+}
+             </style>
+  
+    <h1 class="h11">Descripton:</h1>
+    <p class="p1">#{homeentrepriseBean.entreprise.description}</p><br></br>
+         </div></div>
+    
+       </div>
+
+</div>
+   
+
+        
+        
+<script src="css/bootstrap.bundler.min.js">
+    
+</script><script src="css/metisMenu.minr.js"></script>
+<script src="css/waves.minr.js"></script>
+<script src="css/jquery.slimscroll.minr.js"></script>
+<!-- App js --><script src="css/appr.js"></script>
+	
+    
+    </h:body>
+</html>
+

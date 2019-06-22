@@ -1,0 +1,203 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui" xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <head>
+        <title>Facelet Title</title>
+
+    </head>
+
+    <body>
+
+        <!-- LOADING MASK -->
+        <ui:composition template="Client.xhtml">
+
+            <ui:define name="content">
+                <div class="sh-pagetitle">
+                    <div class="input-group">
+                        <!-- input-group-btn -->
+                    </div>
+                    <!-- input-group -->
+                    <div class="sh-pagetitle-left">
+                        <div class="sh-pagetitle-icon"><i class="icon ion-ios-contact"></i></div>
+                        <div class="sh-pagetitle-title">
+                            <h2>Profile</h2>
+                        </div>
+                        <!-- sh-pagetitle-left-title -->
+                    </div>
+                    <!-- sh-pagetitle-left -->
+                </div>
+                <!-- Google Webfonts -->
+             
+                <!--[if lt IE 9]>
+	<script src="/js/libs/respond.min.js"></script>
+	<![endif]-->
+
+                <!-- Bootstrap Core CSS -->
+
+<link href="css/bootstrap.minjeanreno.css" rel="stylesheet" type="text/css"/>
+                <!-- Theme Styles CSS-->
+                <link href="css/font-awesome.min.css" rel="stylesheet" />
+                <link rel="stylesheet" href="css/styl.css" />
+                <link rel="stylesheet" href="css/flexslider.css" />
+                <link rel="stylesheet" href="css/nivo-lightbox.css" />
+                <link rel="stylesheet" href="css/default.css" />
+                <link rel="stylesheet" href="css/animate.css" />
+                <link rel="stylesheet" type="text/css" href="css/yellow-black.css" title="yellow" media="screen" />
+                <link rel="alternate stylesheet" type="text/css" href="css/violet-black.css" title="black" media="screen" />
+                <link rel="alternate stylesheet" type="text/css" href="css/orange-black.css" title="orange" media="screen" />
+                <link rel="alternate stylesheet" type="text/css" href="css/blue-black.css" title="blue" media="screen" />
+
+                <div class="main-content">
+                    <div class="container no-padding">
+                        <div class="row">
+                            <div class="col-md-3 l-content">
+                                <div class="profile-pic">
+                                    <div class="pic-bg"><img src="css/profile-avatar.png" class="img-responsive" alt="" /></div>
+                                </div>
+                                <nav>
+                                    <ul class="navigation">
+                                        <li><a href="#">Profile <i class="fa fa-user"></i></a></li>
+                                        <li><a href="#">Resume <i class="fa fa-file-text"></i></a></li>
+                                         <li><a href="#">Skils <i class="fa fa-file-text"></i></a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+
+                            <div class="col-md-9 r-content">
+                                <div class="flexslider">
+                                    <div class="slides">
+                                        <!-- SECTION 1 - HOMEPAGE -->
+                                        <section class="no-display">
+                                            <div class="profile" id="1">
+                                                <h2><span>#{profileBean.client.nom} #{profileBean.client.prenom}</span></h2>
+                                                <div class="sep1"></div>
+                                                <p>#{profileBean.client.description}</p>
+                                                <div class="personal-info col-md-12 no-padding">
+                                                    <h4>Personal Info</h4>
+                                                    <div class="sep2"></div>
+                                                    <ul>
+
+                                                        <li>
+                                                            <div class="p-info"><em>date of birth</em><span>#{profileBean.client.datenaissance}</span></div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="p-info"><em>e-mail</em><span>#{profileBean.client.email}</span></div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="p-info"><em>address</em><span>#{profileBean.client.location}</span></div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="p-info"><em>phone</em><span>#{profileBean.client.numtel}</span></div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="p-info"><em>website</em><span>www.themeforest.net</span></div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </section>
+                                        <!-- SECTION 1 - HOMEPAGE -->
+
+                    
+                                        <section class="no-display">
+                                            <div class="item resume" id="3">
+                                                <div class="page-head">
+                                                    <div class="row">
+                                                        <div class="col-md-5">
+                                                            <h3>Resume</h3>
+                                                        </div>
+                                                        <div class="col-md-7">
+                                                            <div class="np-main">
+                                                                <p>Go to next/previous page</p>
+                                                                <div class="np-controls">
+                                                                    <a href="#" class="previous"><i class="fa fa-arrow-circle-left"></i></a>
+                                                                    <a href="#" class="next"><i class="fa fa-arrow-circle-right"></i></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="resume-info">
+                                                    <h4>Education</h4>
+                                                    <div class="sep2"></div>
+                                                    <p:repeat value="#{profileBean.client.listFormation}" var="client">
+                                                    <ul>
+                                                        <li>
+                                                            <h5>#{client.institue}</h5>
+                                                            <span class="year"><i class="fa fa-calendar"></i> #{client.datedebutformation}#{client.datefinformation}</span>
+                                                            <p>#{client.descriptionformation}</p>                                                  </li>
+                                                     
+                                                    </ul></p:repeat>
+                                                </div>
+                                                
+                                                <div class="resume-info">
+                                                    <h4>Work Experience</h4>
+                                                    <div class="sep2"></div>
+                                                    <p:repeat value="#{profileBean.client.listExperience}" var="experience">
+                                                    <ul>
+                                                        <li>
+                                                            <h5>#{experience.nomentreprise}</h5>
+                                                            <span class="year"><i class="fa fa-calendar"></i> #{experience.datedebut}#{experience.datefin}</span>
+                                                            <p>   #{experience.description}</p>                                           </li>
+                                                     
+                                                    </ul></p:repeat>
+                                                </div>
+                                            </div>
+                                        </section>
+<section class="no-display">
+                                            <div class="profile" id="4">
+                                               <div class="page-head">
+                                                    <div class="row">
+                                                        <div class="col-md-5">
+                                                            <h3>Skils</h3>
+                                                        </div>
+                                                        <div class="col-md-7">
+                                                            <div class="np-main">
+                                                                <p>Go to next/previous page</p>
+                                                                <div class="np-controls">
+                                                                    <a href="#" class="previous"><i class="fa fa-arrow-circle-left"></i></a>
+                                                                    <a href="#" class="next"><i class="fa fa-arrow-circle-right"></i></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>  </div>
+    <ui:include src="ex1.xhtml"></ui:include>
+                                                
+                                        </section>
+                                    </div>
+                                </div>
+
+                                <!-- FOOTER -->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <script src="css/jquery.min.js"></script>
+                <script src="css/bootstrap.js"></script>
+                <script src="css/jquery.flexslider.js"></script>
+                <script src="css/jquery.easing.js"></script>
+                <script src="css/jquery.mixitup.min.js"></script>
+                <script src="css/nivo-lightbox.min.js"></script>
+                <script src="css/jquery.appear.js"></script>
+                <script src="css/jquery.inview.js"></script>
+                <script src="css/main2.js"></script>
+               
+                <script src="css/animations.js"></script>
+              
+
+                <script src="css/styleswitch.js"></script>
+                <script src="css/style_switch_custom.js"></script>
+
+             
+            </ui:define>
+        </ui:composition>
+        <!-- MAIN CONTENT -->
+        <!-- JavaScript -->
+
+    </body>
+
+    </html>

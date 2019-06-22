@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        
+    </h:head>
+    <h:body>
+        
+<ui:composition template="Client.xhtml">
+    
+	
+    		<ui:define name="content">
+                   <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="css/jquery.circliful.js"></script>
+
+<h:form id="form1">
+<div class="sh-pagetitle">
+        <div class="input-group">
+          <!-- input-group-btn -->
+        </div><!-- input-group -->
+        <div class="sh-pagetitle-left">
+          <div class="sh-pagetitle-icon"><i class="icon ion-ios-mail-unread"></i></div>
+          <div class="sh-pagetitle-title">
+            <h2>Requests Availble</h2>
+          </div><!-- sh-pagetitle-left-title -->
+        </div><!-- sh-pagetitle-left -->
+      </div>
+<div class="container">
+    <p:repeat value="#{requestbean.listdemande}" var="requestd" varStatus="i">
+<div class="row">
+  <div class="span8">
+    <div class="row">
+      <div class="span8">
+          <h4><strong><a href="#">#{requestd.post}</a></strong></h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="span2">  
+                   <div id="test-circle#{i.index}"> </div>
+                     <script>
+    $( document ).ready(function() { // 6,32 5,38 2,34
+      $("#test-circle#{i.index}").circliful({
+            animation: 0,
+            animationStep: 1,
+            animateInView: true,
+            percent: 80,
+            textSize: 28,
+            textStyle: 'font-size: 12px;',
+            textColor: '#666',
+            progressColor: {0: 'red', 50: 'blue'}
+        });
+           });
+               </script>
+                   <p>your chance :</p>
+      </div>
+      <div class="col-8">  
+             
+        <p>
+            #{requestd.description} 
+       </p>
+          <p>Experience :#{requestd.experience} ans</p> 
+ 
+          <p>niveau :#{requestd.niveau}</p>
+      </div>
+    </div>
+  
+      
+     
+
+      
+    <div class="row">
+      <div class="span8">
+        <p></p>
+        <p>
+            <i class="icon-user"></i> by <a href="#">#{requestd.entreprised.nomentreprise}</a> 
+          | <i class="icon-calendar"></i> Sept 16th, 2012
+          | <i class="icon-tags"></i> skils : 
+          <p:repeat value="#{requestd.listskils}" var="skil">
+              <a href="#"><span class="label label-info">#{skil.skilsdemande}</span></a> </p:repeat>
+              <i class="icon-tags"> </i>salaire max :#{requestd.salairemax} d
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<hr/>
+</p:repeat></div>
+</h:form>  </ui:define></ui:composition>
+    </h:body>
+</html>
+

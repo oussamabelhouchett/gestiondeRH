@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        
+
+   
+
+    <title>Shamcey Responsive Bootstrap 4 Admin Template</title>
+
+    <!-- Vendor css --><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"></link>
+    <link href="https://unpkg.com/ionicons@4.5.5/dist/css/ionicons.min.css" rel="stylesheet"></link>
+    <link href="css/perfect-scrollbar.css" rel="stylesheet"/>
+
+    <!-- Shamcey CSS -->
+    <link rel="stylesheet" href="css/shamcey.css"/>
+    </h:head>
+    <h:body>
+  
+    <div class="sh-logopanel">
+      <a href="#" class="sh-logo-text">job Finder</a>
+      <a id="navicon" href="#" class="sh-navicon d-none d-xl-block"><i class="icon ion-navicon"></i></a>
+      <a id="naviconMobile" href="#" class="sh-navicon d-xl-none"><i class="icon ion-navicon"></i></a>
+    </div><!-- sh-logopanel -->
+
+    <div class="sh-sideleft-menu">
+      <label class="sh-sidebar-label">Navigation</label>
+      <ul class="nav">
+        <li class="nav-item">
+            <a href="EntreprisePage.xhtml" class="nav-link #{curentpage.homeEntreprise}">
+            <i class="icon ion-ios-home-outline"></i>
+            <span>Home</span>
+          </a>
+        </li><!-- nav-item -->
+       <li class="nav-item">
+           <a href="employment.xhtml" class="nav-link #{curentpage.employement} ">
+            <i class="icon ion-ios-home-outline"></i>
+            <span>demand employment</span>
+          </a>
+        </li> <li class="nav-item">
+            <a href="jobmarket.xhtml" class="nav-link  #{curentpage.jobmarket}">
+            <i class="icon ion-ios-home-outline"></i>
+            <span>employment market</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="logout.xhtml" class="nav-link ">
+            <i class="icon ion-ios-home-outline"></i>
+            <span>logout</span>
+          </a>
+        </li>
+      </ul>
+    </div><!-- sh-sideleft-menu -->
+
+    <div class="sh-headpanel">
+      <div class="sh-headpanel-left">
+
+        
+        <!-- END: HIDDEN IN MOBILE -->
+
+        <!-- START: DISPLAYED IN MOBILE ONLY -->
+       <!-- END: DISPLAYED IN MOBILE ONLY -->
+
+      </div><!-- sh-headpanel-left -->
+
+      <!-- sh-headpanel-right -->
+    </div><!-- sh-headpanel -->
+
+    <div class="sh-mainpanel">
+    <!-- sh-breadcrumb -->
+   
+      <div class="sh-pagebody">
+        <div class="row row-sm">
+     <ui:insert name = "content" >
+      <ui:include src = "homeEntreprise.xhtml" />
+   </ui:insert>
+        
+        </div><!-- row -->
+      </div><!-- sh-pagebody -->
+      
+    </div><!-- sh-mainpanel -->
+
+       </h:body>
+</html>
+

@@ -1,0 +1,280 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <head>
+        <title>Facelet Title</title>
+      
+    </head>
+    <body>
+        <ui:composition template="EntreprisePage.xhtml" class="overflow-hidden">
+      <ui:define  name="content" class="overflow-hidden">
+        <style>
+         body {
+  overflow-y:auto;
+    overflow-x:hidden;
+  
+}
+.tab-content{
+      overflow-y:hidden;
+}      
+        </style>
+    <link href="css/hoe.css" rel="stylesheet"/>
+  
+    <link href="css/extra.css"></link>
+ <link href="css/mdb.min.css" rel="stylesheet"/>
+ 
+ <link href="css/mdb.css" rel="stylesheet"/>
+  <!-- Your custom styles (optional) -->
+  <link href="css/stylf.css" rel="stylesheet"/>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+         <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"/>
+  <!-- Bootstrap core CSS -->
+  <link href="css/mdbootstrap.min.css" rel="stylesheet"/>
+  <!-- Material Design Bootstrap -->
+  <link href="css/mdmdb.min.css" rel="stylesheet"/>
+  <!-- Your custom styles (optional) -->
+  <link href="css/mdstyle.css" rel="stylesheet"/>
+  
+  
+	<link rel="stylesheet" href="css/styl.css" />
+        
+<link rel="shortcut icon" href="assets/images/favicon.ico"/><!-- App css -->
+<link href="css/bootstrap.minjeanreno.css" rel="stylesheet" type="text/css"/>
+<link href="css/iconsjeanreno.css" rel="stylesheet" type="text/css"/>
+<link href="css/metismenu.minjeanreno.css" rel="stylesheet" type="text/css"/>
+  <link href="css/stylejeanreno.css" rel="stylesheet" type="text/css"/>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"></link>
+	
+        <div id="hoeapp-container" hoe-color-type="lpanel-bg2" hoe-lpanel-effect="shrink">
+			  <h:form id="f1">
+<section id="team" class="pb-5">
+    <div class="container">
+          <div class="row">
+              <p:repeat id="r1" value="#{jobmarkerbean.listclient}" var="client" varStatus="i">
+      
+       
+            <div class="col-4">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="css/user-#{i.index+2}.jpg" alt="card image" style="size: 50"/></p>
+                                    <h4 class="card-title">#{client.nom} #{client.prenom}</h4>
+                                    <p class="card-text">#{client.descriptionshort}...</p>
+                                    <p:commandButton  action="#{clientBean.getparamter()}" class="btn btn-primary" value="read more"  onclick="$('#modalPoll-1').modal('show');" immediate="true" update="f2" >
+                                        <f:setPropertyActionListener value="#{client}" target="#{jobmarkerbean.c}" />
+            
+                                    </p:commandButton>
+                            </div>
+                        
+  
+                            
+                            </div>
+                        </div>
+                      
+                    </div>
+                </div>
+            </div>
+            
+
+      
+            </p:repeat>  </div>
+    </div>
+</section>  </h:form>
+    
+  
+			<div id="styleSelector">
+                <div class="selector-toggle">
+                    <a href="javascript:void(0)"></a>
+                </div>
+                             <h:form>
+                <ul>
+                    <li>
+                        <p class="selector-title">
+                                            <span class="sub-title">Filter</span></p>
+                    </li>
+                    <li >
+                        <p:selectBooleanCheckbox value="#{jobmarkerbean.v}" itemLabel="All">
+ 
+                                 <p:ajax update="f1" process="@this"  oncomplete="javascript:window.location.reload()" />
+                        </p:selectBooleanCheckbox>
+                    </li>
+                    <li>
+                                            <span class="sub-title">Skils</span>
+                        <p:selectManyCheckbox id="grid3" value="#{jobmarkerbean.listSkilselection}" layout="pageDirection" columns="1">
+                            <f:selectItems value="#{jobmarkerbean.listskil}" var="car" itemLabel="#{car}" itemValue="#{car}"   />
+                            <p:ajax update="f1" process="@this" listener="#{jobmarkerbean.cheacked()}" />
+    </p:selectManyCheckbox>
+                    </li>
+                  
+				
+					<li > 
+                                            <span class="sub-title">Experience</span><br></br>
+                                            <p:selectOneRadio id="city" value="#{jobmarkerbean.experience}"  layout="grid" columns="1">
+                                                <f:selectItems value="#{jobmarkerbean.listexperience}" var="c" itemLabel="#{c} ans" itemValue="#{c}"/>
+                                                <p:ajax update="f1" listener="#{jobmarkerbean.experienceselection()}" />    
+                                            </p:selectOneRadio>
+                               
+                                            
+                                         
+                        
+                                        </li>
+                    
+					<li > 
+                                            <span class="sub-title">ville</span><br></br>
+                                            <p:selectOneRadio id="city2" value="#{jobmarkerbean.ville}" binding="#{checkbox}" layout="grid" columns="1" >
+                           <f:selectItems value="#{jobmarkerbean.listeVille}" var="c" itemLabel="#{c}" itemValue="#{c}"/>
+                           <p:ajax update="f1" listener="#{jobmarkerbean.villeselection(checkbox.value)}" />    
+                                           
+        </p:selectOneRadio>
+                               
+                                            
+                                         
+                        
+                                        </li>
+                    
+					<li > 
+                                            <span class="sub-title">Niveau</span><br></br>
+                                            <p:selectOneRadio id="city1" value="#{jobmarkerbean.niveau}"  layout="grid" columns="1">
+                           <f:selectItems value="#{jobmarkerbean.listniveau}" var="c" itemLabel="#{c}" itemValue="#{c}"/>
+                           <p:ajax update="f1" listener="#{jobmarkerbean.niveauselction()}" />    
+        </p:selectOneRadio>
+                               
+                                            
+                                         
+                        
+                                        </li>
+					
+                </ul></h:form>
+                        </div>
+             
+        </div>   
+
+
+
+<!-- Modal: modalPoll -->
+<div class="modal fade right large  overflow-auto" id="modalPoll-1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" 
+  aria-hidden="true" data-backdrop="false">
+  <div class="modal-dialog modal-full-height modal-right  modal-notify modal-info " role="document">
+    <div class="modal-content">
+        <h:form id="f2">
+      <!--Header-->
+     
+      <div class="modal-header">
+          <p class="heading lead">Detail for #{jobmarkerbean.c.nom}
+        </p>
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" class="white-text">×</span>
+        </button>
+      </div>
+    
+           <ul class="nav nav-tabs md-tabs nav-justified primary-color" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" data-toggle="tab" href="#panel555" role="tab">
+      <i class="fas fa-user pr-2"></i>Profile</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#panel666" role="tab">
+      <i class="fas fa-heart pr-2"></i>professional view</a>
+  </li>
+</ul>
+                     
+<div class="tab-content">
+
+  <!-- Panel 1 -->
+  <div class="tab-pane fade in show active" id="panel555" role="tabpanel">
+      <div class="container-fluid">
+                         <br></br>
+                         <br></br> 
+                          <div class="row">
+ 
+<div class="card profile-card">
+<div class="card-body bg-soft-info p-0">
+<div class="media p-3 align-items-center"><img class="rounded-circle thumb-lg" src="css/user-2.jpg" alt="user" />
+<div class="media-body ml-3 align-self-center">
+<h5 class="mb-1 "> #{jobmarkerbean.c.nom} #{jobmarkerbean.c.prenom}</h5>
+<p class="mb-0 font-12 text-light"> <i class="far fa-envelope">   #{jobmarkerbean.c.email}</i></p>
+  <i class="fab fa-whatsapp"></i>+216 #{jobmarkerbean.c.numtel}
+<p class="mb-0 font-12 text-light"> <i class="fas fa-map-marker-alt"> #{jobmarkerbean.c.location}</i></p>
+  
+</div>
+</div>
+</div>
+<!--end card-body-->
+<div class="card-body pb-0">
+<h6 class="text-center">Description</h6>
+<p class="font-14 text-muted text-center"> #{jobmarkerbean.c.description}</p>
+</div>
+</div>	
+                        
+                          </div></div></div>
+   
+  <div class="tab-pane fade" id="panel666" role="tabpanel">    
+      <div class="resume-info">
+									<h4>Education</h4>
+									<div class="sep2"></div>
+									<ul>
+                                                                            <p:repeat value="#{jobmarkerbean.c.listFormation}" var="formation">
+										<li>
+                                                                                    <h5>#{formation.institue}</h5>
+                                                                                        <span class="year"><i class="fa fa-calendar"></i> #{formation.datedebutformation} - #{formation.datefinformation}</span>
+                                                                                        <p class="p1">#{formation.descriptionformation}</p>
+                                                                                        <p class="p1">   <i class="fas fa-map-marker-alt">#{formation.locationformation}</i></p>
+                                                                                       
+										</li>
+                                                                            </p:repeat>
+									</ul>
+                                                                        
+                                                                        
+                                                                 <h4>Experience</h4>
+									<div class="sep2"></div>
+									<ul>
+                                                                            <p:repeat value="#{jobmarkerbean.c.listExperience}" var="experience">
+										<li>
+                                                                                    <h5>#{experience.nomentreprise}</h5>
+                                                                                    <span class="year"><i class="fa fa-calendar"></i> #{experience.datedebut} - #{experience.datefin}</span>
+                                                                                    <p class="p1">#{experience.description}</p>
+                                                                                    <p class="p1">   <i class="fas fa-map-marker-alt">#{experience.location}</i></p>
+                                                                                       
+										</li>
+                                                                            </p:repeat>
+									</ul>       
+								</div>
+      
+      
+                        </div>
+                    
+             </div>   
+        </h:form></div>
+    </div>
+
+  </div>
+ <script src="css/hoe.js"></script>
+   
+  <script type="text/javascript" src="css/mdjquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="css/mdpopper.min.js"></script>
+  <script type="text/javascript" src="css/mdbootstrap.min.js"></script>
+  <script type="text/javascript" src="css/mdmdb.min.js"></script>     
+
+      </ui:define>
+          
+  </ui:composition>
+    </body>
+</html>
+

@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+  
+    <title>Client</title>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"></link>
+    <link href="https://unpkg.com/ionicons@4.5.5/dist/css/ionicons.min.css" rel="stylesheet"></link>
+    <link href="css/perfect-scrollbar.css" rel="stylesheet"/>
+
+  <link href="css/stylejeanreno.css" rel="stylesheet" type="text/css"/>
+    <!-- Shamcey CSS -->
+    <link rel="stylesheet" href="css/shamcey.css"/>
+    </h:head>
+    <h:body>
+  
+    <div class="sh-logopanel">
+      <a href="#" class="sh-logo-text">JobFinder</a>
+      <a id="navicon" href="#" class="sh-navicon d-none d-xl-block"><i class="icon ion-navicon"></i></a>
+      <a id="naviconMobile" href="#" class="sh-navicon d-xl-none"><i class="icon ion-navicon"></i></a>
+    </div><!-- sh-logopanel -->
+
+    <div class="sh-sideleft-menu">
+        <label class="sh-sidebar-label">#{clientBean.client.nom} #{clientBean.client.prenom} </label>
+       
+        <ul class="nav">
+        <li class="nav-item">
+            <a href="Client.xhtml" class="nav-link #{curentpage.home}">
+            <i class="icon ion-ios-home-outline"></i>
+            <span>Home</span>
+          </a>
+            <a href="profile.xhtml" class="nav-link #{curentpage.profile}">
+            <i class="icon ion-ios-home-outline"></i>
+            <span>Profile</span>
+          </a>
+            <a href="Requests.xhtml" class="nav-link #{curentpage.request} ">
+            <i class="icon ion-ios-home-outline"></i>
+            <span>RequestsAvaible</span>
+          </a>
+            <a href="Forum.xhtml" class="nav-link  #{curentpage.forum}">
+            <i class="icon ion-ios-home-outline"></i>
+            <span>Forum</span>
+          </a>
+        </li><!-- nav-item -->
+    
+      </ul>
+    </div><!-- sh-sideleft-menu -->
+
+    <div class="sh-headpanel">
+    
+      <div class="sh-headpanel-right">
+        <div class="dropdown mg-r-10">
+          <a href="#" class="dropdown-link dropdown-link-notification">
+            <i class="icon ion-ios-filing-outline tx-24"></i>
+          </a>
+        </div>
+       <ul class="list-unstyled topbar-nav float-right mb-0">
+
+<li class="dropdown"><a class="nav-link dropdown-toggle waves-effect waves-light nav-user" href="#" data-toggle="dropdown"><img class="rounded-circle" src="css/user-1.jpg" alt="profile-user" /> </a>
+<div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#"> #{clientBean.client.nom} </a> 
+<div class="dropdown-divider"> </div>
+<a class="dropdown-item" href="logout.xhtml"> Logout</a></div>
+</li>
+</ul>
+      </div><!-- sh-headpanel-right -->
+    </div><!-- sh-headpanel -->
+
+    <div class="sh-mainpanel">
+   
+<ui:insert name = "content" >
+      <ui:include src = "chart.xhtml" />
+   </ui:insert>
+    </div>
+    
+    </h:body>
+</html>
+

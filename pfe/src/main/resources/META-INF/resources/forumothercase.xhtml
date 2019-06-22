@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <head>
+        <title>Facelet Title</title>
+    </head>
+    <body>
+    <p:commandButton value="scan comments" ajax="false" update="@this" action="#{sentementnlp.showscan()}"  style="align-content: center" />
+ <br></br>  
+ <div class="container">
+       <p:media value="css/#{listcvControlleur.client.cvForum}" width="90%" height="250px" style="align: center" player="pdf">  
+    Your browser can't display pdf, 
+    </p:media>
+     <h:form id="f2" rendered="#{scanComentsControuleurs.active}">
+       <div class="panel panel-primary">
+      <div class="panel-heading">Scan for Coments</div>
+      <div class="panel-body">
+          <div class="container">
+              <div class="row">
+                  <div class="col">
+              <p:chart id="votes" type="pie" model="#{scanComentsControuleurs.livePieModel}" style="width:400px;height:300px"/>
+                  </div><div class="col">
+              <p:chart id="votes1" type="bar" model="#{scanComentsControuleurs.horizontalBarModel}" style="width:400px;height:150px"/>
+                  </div> </div>  </div>
+              <p:commandButton value="scan comments" ajax="false" update="@this" action="#{sentementnlp.disable()}"  style="align-content: center" />
+
+      </div >   </div>                             
+        </h:form>       
+  <div class="row">
+    
+ 
+   <div class="col-sm-10 col-sm-offset-1" id="logout">
+        
+        <div class="comment-tabs">
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="active"><a href="#comments-logout" role="tab" data-toggle="tab"><h4 class="reviews text-capitalize">Comments</h4></a></li>
+               
+            </ul>            
+            <div class="tab-content">
+                <div class="tab-pane active" id="comments-logout">                
+                    <ul class="media-list">
+                        
+                              <p:repeat value="#{listcvControlleur.client.listcoments}" var="coments">
+                      <li class="media">
+                        <a class="pull-left" href="#">
+                          <img class="media-object img-circle" src="css/unknow.jpg" alt="profile"/>
+                        </a>
+                        <div class="media-body">
+                          <div class="well well-lg">
+                              <h4 class="media-heading text-uppercase reviews">Marco </h4>
+                             
+                              <p class="media-comment">
+                                #{coments.message}
+                              </p>
+                               </div>              
+                        </div>
+                       
+                      </li>          
+                              </p:repeat>
+                    </ul> 
+                </div>
+          
+             
+        </div>
+        </div></div>
+  </div>
+</div>  
+    </body>
+</html>
+

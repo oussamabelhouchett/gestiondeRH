@@ -1,0 +1,222 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui" xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <f:metadata >
+                <f:viewAction action="#{demandBean.cheak()}" />
+            </f:metadata>
+        </h:form>
+        <ui:composition template="EntreprisePage.xhtml">
+
+            <ui:define name="content">
+                <link href="css/mdbootstrap.min.css" rel="stylesheet" />
+                <link href="css/mdmdb.min.css" rel="stylesheet" />
+                <link rel="stylesheet" type="text/css" href="css/tabs1.css" />
+                <link rel="stylesheet" type="text/css" href="css/tabstyles1.css" />
+                <link href="css/iconsjeanreno.css" rel="stylesheet" type="text/css" />
+                <link href="css/metismenu.minjeanreno.css" rel="stylesheet" type="text/css" />
+                <link href="css/stylejeanreno.css" rel="stylesheet" type="text/css" />
+                <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"></link>
+
+                <div class="container">
+                    <section>
+                        <div class="tabs tabs-style-shape">
+                            <nav>
+                                <ul>
+                                    <li>
+                                        <a href="#section-shape-1">
+                                            <svg viewBox="0 0 80 60" preserveAspectRatio="none"></svg>
+                                            <span>add demand</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#section-shape-2">
+                                            <svg viewBox="0 0 80 60" preserveAspectRatio="none"></svg>
+                                            <svg viewBox="0 0 80 60" preserveAspectRatio="none"></svg>
+                                            <span>List Demand</span></a>
+                                    </li>
+                                </ul>
+                            </nav>
+                            <div class="content-wrap">
+                                <section id="section-shape-1">
+                                    <div class="card-header bg-primary tx-white"></div>
+                                    <div class="card-body pd-sm-30">
+                                        <div class="form-layout">
+                                            <div class="row mg-b-25">
+                                                <ui:include src="adddemand.xhtml"></ui:include>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <p>1</p>
+                                </section>
+                                <section id="section-shape-2">
+                                                                            
+                                   
+   <h:form id="form"> 
+      
+       
+                                        <p:repeat value="#{demandBean.listedemande}" var="demand">
+
+                                            <h:panelGrid columns="2" style="width:100%" columnClasses="logo,detail">
+     <div class="col-md-7">
+                                                    <p:commandButton value="scan top profile" action="#{demandBean.trye()}" styleClass="btn btn-success " process="@this" update="formmodal" onclick="$('#modalPoll-1').modal('show');">
+                                                        <f:setPropertyActionListener value="#{demand}" target="#{demandBean.demand}"></f:setPropertyActionListener>
+                                                    </p:commandButton>  
+
+                                                </div>
+                                                <img src="http://placehold.it/260x180" alt="" />
+                                                <p:outputPanel>
+                                                    <h:panelGrid columns="2" cellpadding="5">
+
+                                                        <h:outputText value="post :" />
+                                                        <h:outputText value="#{demand.post}" style="font-weight: bold" />
+                                                        <h:outputText value="experience:" />
+                                                        <h:outputText value="#{demand.experience}" style="font-weight: bold" />
+
+                                                        <h:outputText value="niveau:" />
+                                                        <h:outputText value="#{demand.niveau}" style="font-weight: bold" />
+                                                        <h:outputText value="outils :" />
+                                                        <p:repeat value="#{demand.listskils}" var="skils">
+
+                                                            <h:outputText value="#{skils.skilsdemande}   " style="font-weight: bold" />
+                                                            <p:spacer width="10" height="10" /> </p:repeat>
+                                                        <h:outputText value="" />
+                                                        <h:outputText value="#{demand.description}" style="font-weight: bold" />
+
+                                                    </h:panelGrid>
+                                                </p:outputPanel>
+                                            </h:panelGrid>
+                                            <hr />
+
+                                        </p:repeat>
+                                   </h:form>
+                                    <!-- modal -->
+                                    <div class="modal fade right large  overflow-auto" id="modalPoll-1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
+                                        <div class="modal-dialog modal-full-height modal-right  modal-notify modal-info " role="document">
+                                            <div class="modal-content">
+                                                <!--Header-->
+                                                <div class="modal-header">
+                                                    <p class="heading lead">
+                                                        
+                                                    </p>
+
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true" class="white-text">×</span>
+                                                    </button>
+                                                </div>
+                                                <div class="container">
+                                                    <h:form id="formmodal">
+                                                        
+                                                        <p:repeat value="#{demandBean.listfitre}" var="f" varStatus="h">
+                                                            <div class="row">
+                                                                <div class="card-body border-bottom">
+                                                                    <div class="fro_profile">
+                                                                        <div class="row">
+                                                                            <div class="col-lg-4 mb-3 mb-lg-0">
+                                                                                <div class="fro_profile-main">
+                                                                                    <div class="fro_profile-main-pic"><img class="rounded-circle" src="css/user-#{h.index+1}.jpg" alt=""  style="width: 20 px; height: 20 px"/></div>
+                                                                                    <br></br>
+                                                                                    <div class="fro_profile_user-detail">
+                                                                                        <h5 class="fro_user-name">#{f.client.nom} #{f.client.prenom}</h5>
+                                                                                        <p class="mb-0 fro_user-name-post"> #{f.client.email}</p>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!--end col-->
+                                                                            <p:spacer width="70" height="10" />
+                                                                            <div class="col-4  mb-lg-0">
+                                                                                <div class="header-title">percent of success</div>
+                                                                                <div class="row">
+                                                                                    <div class="col-lg-10">
+                                                                                        <div id="test-circle#{h.index}"></div>
+
+                                                                                    </div>
+                                                                                    <script>
+                                                                                        // 6,32 5,38 2,34
+                                                                                        $(document).ready(function() {
+
+                                                                                            $("#test-circle#{h.index}").html('');
+                                                                                            console.log('element');
+
+                                                                                            $("#test-circle#{h.index}").circliful({
+                                                                                                animation: 1,
+                                                                                                animationStep: 5,
+                                                                                                foregroundBorderWidth: 15,
+                                                                                                backgroundBorderWidth: 15,
+                                                                                                percent: #{
+                                                                                                    f.score
+                                                                                                },
+                                                                                                textSize: 28,
+                                                                                                textStyle: 'font-size: 12px;',
+                                                                                                textColor: '#666',
+                                                                                            });
+
+                                                                                        });
+                                                                                    </script>
+                                                                                    <div class="col-5 align-item-center">
+                                                                                        <div class="seling-report">
+
+                                                                                            <ul class="list-inline mb-0">
+                                                                                                <li class="mb-2 list-inline-item text-muted font-13"><i class="fab fa-whatsapp"> +216#{f.client.numtel}</i></li>
+                                                                                                <li class="mb-2 list-inline-item text-muted font-13"> <i class="fas fa-map-marker-alt">#{f.client.location} </i></li>
+
+                                                                                            </ul>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!--end col-->
+
+                                                                            <!--end col-->
+                                                                        </div>
+                                                                        <!--end row-->
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </p:repeat>
+
+                                                    </h:form>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </section>
+
+                            </div>
+                            <!-- /content -->
+                        </div>
+                        <!-- /tabs -->
+                       
+                    </section>
+
+                </div>
+
+                <script type="text/javascript" src="css/mdpopper.min.js"></script>
+                <script type="text/javascript" src="css/mdbootstrap.min.js"></script>
+                <script type="text/javascript" src="css/mdmdb.min.js"></script>
+                <script src="css/jquery.circliful.js"></script>
+                <script src="css/cbpFWTabs.js"></script>
+                <script>
+                    (function() {
+
+                        [].slice.call(document.querySelectorAll('.tabs')).forEach(function(el) {
+                            new CBPFWTabs(el);
+                        });
+
+                    })();
+                </script>
+
+            </ui:define>
+        </ui:composition>
+    </h:body>
+
+    </html>
